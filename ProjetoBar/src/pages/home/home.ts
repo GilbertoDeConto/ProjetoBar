@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { EstabelecimentosService } from '../../services/estabelecimentos.service';
 import { Estabelecimento } from '../../vo/vo';
+import { PedidoService } from '../../services/pedido.service';
 
 @Component({
   selector: 'page-home',
@@ -11,7 +12,10 @@ export class HomePage {
 
   public estabelecimentos : Estabelecimento[];
 
-  constructor(public navCtrl: NavController, private wsEstabelecimentos : EstabelecimentosService) {
+  constructor(
+    public navCtrl: NavController, 
+    private wsEstabelecimentos : EstabelecimentosService,
+    private pedidoSrv : PedidoService) {
 
   }
 
@@ -25,9 +29,12 @@ export class HomePage {
 
   selecionarProdutos(e : Estabelecimento){
 
-    this.navCtrl.push("SelecionarProdutosPage", {
-      estabelecimento : e
-    });
+    if(this.pedidoSrv.iniciaNovoPedido(e)){
+
+      this.navCtrl.push("SelecionarProdutosPage", {
+        estabelecimento : e
+      });
+    }
   }
 
 }

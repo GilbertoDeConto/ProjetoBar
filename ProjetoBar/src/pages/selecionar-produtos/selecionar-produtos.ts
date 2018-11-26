@@ -36,13 +36,25 @@ export class SelecionarProdutosPage {
 
         this.pedidoItens.push(pedidoItem);
       });
-
-      console.log(this.pedidoItens);
     });
   }
 
   atualizaQtdeCarrinho(p : Produto, qtde : number){
+
     this.carrinho.atualizaQtde(p, qtde);
+
+    // Atualiza quantidade da tela
+    this.pedidoItens.forEach( (pedidoItem, index) => {
+
+      if(pedidoItem.produto._id == p._id){
+        this.pedidoItens[index].qtde = this.carrinho.getQtde(p);
+        return false;
+      }
+    });
+  }
+
+  finalizarPedido(){
+    
   }
 
 }

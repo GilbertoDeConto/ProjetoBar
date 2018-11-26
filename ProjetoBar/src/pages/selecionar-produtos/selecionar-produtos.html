@@ -16,9 +16,9 @@
         <p>{{p.produto.valor | currency : 'R$ '}}</p>
 
         <div item-end>
-          <button ion-button color="danger" (click)="atualizaQtdeCarrinho(p, -1)"><ion-icon name="remove"></ion-icon></button>
+          <button ion-button color="danger" (click)="atualizaQtdeCarrinho(p.produto, -1)"><ion-icon name="remove"></ion-icon></button>
           {{p.qtde}}
-          <button ion-button color="secondary" (click)="atualizaQtdeCarrinho(p, 1)"><ion-icon name="add"></ion-icon></button>
+          <button ion-button color="secondary" (click)="atualizaQtdeCarrinho(p.produto, 1)"><ion-icon name="add"></ion-icon></button>
         </div>
 
       </ion-item>
@@ -28,6 +28,6 @@
 
 <ion-footer>
   <ion-toolbar>
-    <button ion-button full>Prosseguir</button>
+    <button ion-button full (click)="finalizarPedido()">Prosseguir</button>
   </ion-toolbar>
 </ion-footer>
