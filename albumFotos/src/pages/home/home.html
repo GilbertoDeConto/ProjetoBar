@@ -1,0 +1,30 @@
+<ion-header>
+    <ion-navbar>
+      <ion-title>
+        Álbum de Fotos
+      </ion-title>
+      <ion-buttons end>
+          <button ion-button icon-only (click)="abrirCadastro();">
+              <ion-icon name="add"></ion-icon>
+          </button>
+      </ion-buttons>
+  </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+  
+      <ion-card *ngFor="let f of fotos">
+          <img src="http://localhost:3000/uploads/{{f.arquivo}}"/>
+          <ion-card-content>
+              <ion-card-title>
+                {{f.descricao}}
+              </ion-card-title>
+              <p>
+                {{f.data | date:"dd/MM/yyyy"}} às {{f.data | date:"HH:mm"}}
+              </p>
+          </ion-card-content>
+      </ion-card>
+  
+  
+  </ion-content>
+  

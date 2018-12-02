@@ -1,0 +1,32 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Nova Foto</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+    <div *ngIf="foto" style="width: 100%; text-align: center; height: 300px;">
+        <img [src]="foto" style="width: 100%"/>
+    </div>
+    <ion-list padding>
+        <ion-item style="text-align: center; height: 300px" *ngIf="!foto">
+            <ion-icon name="camera" style="font-size: 100px; color: #cfcfcf"></ion-icon>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Descrição:</ion-label>
+            <ion-input type="text" [(ngModel)]="dados.descricao"></ion-input>
+        </ion-item>
+        <ion-item>
+            <button ion-button medium style="width: 48%" (click)="enviar()">Salvar</button>
+            
+            <button ion-button medium icon-start 
+                style="width: 48%" (click)="tirarFoto()">
+                <ion-icon name="camera"></ion-icon>
+                Tirar foto
+            </button>
+
+        </ion-item>
+    </ion-list>
+</ion-content>

@@ -1,0 +1,7 @@
+{
+  "name": "albumFotos",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
