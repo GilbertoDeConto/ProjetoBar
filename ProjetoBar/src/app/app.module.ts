@@ -13,6 +13,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { EstabelecimentosService } from '../services/estabelecimentos.service';
 import { HttpClientModule } from '@angular/common/http';
 import { PedidoService } from '../services/pedido.service';
+import { ListaPedidosPage } from '../pages/lista-pedidos/lista-pedidos';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { PedidoService } from '../services/pedido.service';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    ListaPedidosPage
   ],
   imports: [
     BrowserModule,
@@ -33,7 +35,8 @@ import { PedidoService } from '../services/pedido.service';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    ListaPedidosPage
   ],
   providers: [
     StatusBar,

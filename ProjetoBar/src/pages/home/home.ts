@@ -24,7 +24,6 @@ export class HomePage {
     this.wsEstabelecimentos.listar().subscribe( retorno => {
       this.estabelecimentos = retorno;
     });
-    
   }
 
   selecionarProdutos(e : Estabelecimento){

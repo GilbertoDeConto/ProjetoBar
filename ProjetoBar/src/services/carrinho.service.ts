@@ -13,6 +13,7 @@ export class CarrinhoService{
             let pedidoItem : PedidoItem = new PedidoItem;
             pedidoItem.produto = p;
             pedidoItem.qtde = qtde;
+            pedidoItem.pedido = JSON.parse(localStorage.getItem("pedido"));
 
             novoCarrinho[p._id] = pedidoItem;
 
@@ -26,7 +27,7 @@ export class CarrinhoService{
         }
     }
 
-    getLsCarrinho(){
+    getLsCarrinho() : PedidoItem[]{
         return JSON.parse(localStorage.getItem("carrinho")) || {};
     }
 

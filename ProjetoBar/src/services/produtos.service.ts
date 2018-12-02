@@ -11,8 +11,10 @@ export class ProdutosService{
 
     }
 
-    listar() : Observable<any> {
-        let ws = this.http.post(this.WS + "/listar", {});
+    listar(e : string) : Observable<any> {
+        let ws = this.http.post(this.WS + "/listar", {
+            estabelecimento : e
+        });
         return ws;
     }
 

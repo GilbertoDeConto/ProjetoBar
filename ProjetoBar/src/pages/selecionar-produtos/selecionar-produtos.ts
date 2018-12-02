@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ProdutosService } from '../../services/produtos.service';
-import { Produto, PedidoItem } from '../../vo/vo';
+import { Produto, PedidoItem, Estabelecimento } from '../../vo/vo';
 import { CarrinhoService } from '../../services/carrinho.service';
 
 @IonicPage()
@@ -13,17 +13,21 @@ export class SelecionarProdutosPage {
 
   public pedidoItens : PedidoItem[] = [];
 
+  public estabelecimento : Estabelecimento
+  
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams, 
     public wsProduto : ProdutosService,
     public carrinho : CarrinhoService) {
 
+      this.estabelecimento = this.navParams.get("estabelecimento");
+
   }
 
   ionViewDidLoad() {
     
-    this.wsProduto.listar().subscribe( retorno => {
+    this.wsProduto.listar(this.estabelecimento._id).subscribe( retorno => {
 
       let produtos : Produto[] = retorno;
 
@@ -53,8 +57,9 @@ export class SelecionarProdutosPage {
     });
   }
 
-  finalizarPedido(){
-    
+  prosseguir(){
+
+    this.navCtrl.push("FinalizarPedidoPage"); 
   }
 
 }

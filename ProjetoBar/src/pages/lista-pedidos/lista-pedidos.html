@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Pedidos</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <ion-item *ngFor="let p of pedidos">
+      <h2>{{p.estabelecimento.nome}}</h2>
+      <p>{{p.valor | currency : 'R$ '}}</p>
+      <p item-end>{{p.hora_chegada}}</p>
+    </ion-item>
+
+</ion-content>

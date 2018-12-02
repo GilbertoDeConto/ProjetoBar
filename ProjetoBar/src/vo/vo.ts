@@ -25,6 +25,7 @@ export class Pedido{
     public hora_chegada : Date;
     public pessoas : number;
     public estabelecimento : Estabelecimento;
+    public itens : PedidoItem[];
 }
 
 export class PedidoItem{
